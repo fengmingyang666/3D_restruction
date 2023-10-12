@@ -76,7 +76,7 @@ download_classes = soup.find_all("a", class_="help card-model__feature --downloa
 
 # Download
 # --------------------------------------------------
-cnt = index_start
+idx = index_start
 for download_button in download_classes:
     if download_button:
         # Find the image link, which is a .jpeg file
@@ -85,7 +85,7 @@ for download_button in download_classes:
         
         # Download the image directly and save it to the folder
         img = requests.get(img_link)
-        img_name = str(cnt) + ".jpeg"
+        img_name = str(idx) + ".jpeg"
         img_path = os.path.join(out_path, img_name)
         with open(img_path, "wb") as f:
             f.write(img.content)
@@ -142,7 +142,7 @@ for download_button in download_classes:
         button = driver.find_element("xpath", xpath)
         actions = ActionChains(driver)
         actions.move_to_element(button).click().perform()
-        # Change the file name to cnt.glb
+        # Change the file name to idx.glb
         
         # Wait for the download to complete
         while True:
@@ -152,15 +152,15 @@ for download_button in download_classes:
             else:
                 time.sleep(1)
         # Rename the file
-        new_file_name = str(cnt) + format
+        new_file_name = str(idx) + format
         file_path = os.path.join(out_path, new_file_name)
         # If file exists, delete it
         if os.path.exists(file_path):
             os.remove(file_path)
         os.rename(orig_filename, file_path)
-        cnt = cnt + 1
+        idx = idx + 1
         
-    if cnt == index_end:
+    if idx == index_end:
         break
 # --------------------------------------------------
 
