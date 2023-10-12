@@ -10,7 +10,8 @@ import os
 
 # Configuration
 # --------------------------------------------------
-NUM = 100
+index_start = 0
+index_end = 100
 format = ".glb"
 model = "smartphone"
 id = "384360712@qq.com"
@@ -75,7 +76,7 @@ download_classes = soup.find_all("a", class_="help card-model__feature --downloa
 
 # Download
 # --------------------------------------------------
-cnt = 0
+cnt = index_start
 for download_button in download_classes:
     if download_button:
         # Find the image link, which is a .jpeg file
@@ -153,10 +154,13 @@ for download_button in download_classes:
         # Rename the file
         new_file_name = str(cnt) + format
         file_path = os.path.join(out_path, new_file_name)
+        # If file exists, delete it
+        if os.path.exists(file_path):
+            os.remove(file_path)
         os.rename(orig_filename, file_path)
         cnt = cnt + 1
         
-    if cnt == NUM:
+    if cnt == index_end:
         break
 # --------------------------------------------------
 
