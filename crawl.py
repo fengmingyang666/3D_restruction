@@ -77,6 +77,7 @@ for i in range(page_down_times):
     actions.send_keys(Keys.PAGE_DOWN).perform()
     time.sleep(0.2)
 
+time.sleep(2)
 # Parse the html content and find the download button
 html_content = driver.page_source
 soup = BeautifulSoup(html_content, "html.parser")
@@ -135,6 +136,9 @@ for download_button in download_classes:
                 password_input.send_keys(Keys.RETURN)
                 driver.implicitly_wait(10)
                 time.sleep(2)
+                html_content_inside = driver.page_source
+                soup_inside = BeautifulSoup(html_content_inside, "html.parser")
+                glb_div = soup_inside.find("div", text=format)
             except:
                 continue # no preferred format
             # --------------------------------------------------
