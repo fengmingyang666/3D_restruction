@@ -12,9 +12,9 @@ import os
 # --------------------------------------------------
 index_start = 0
 index_end = 100
-page_down_times = 100
+page_down_times = 300
 format = ".glb"
-model = "smartphone"
+model = "pc monitor"
 id = "384360712@qq.com"
 pw = "sketchfabLifeng"
 # --------------------------------------------------
@@ -75,6 +75,10 @@ for i in range(page_down_times):
     # First, we need to click on white space to make sure the page is active
     actions = ActionChains(driver)
     actions.send_keys(Keys.PAGE_DOWN).perform()
+    if i % 10 == 0:
+        time.sleep(0.2)
+        actions = ActionChains(driver)
+        actions.send_keys(Keys.PAGE_UP).perform()
     time.sleep(0.2)
 
 time.sleep(2)
@@ -158,11 +162,11 @@ for download_button in download_classes:
         actions = ActionChains(driver)
         actions.move_to_element(button).click().perform()
         # Change the file name to idx.glb
-        
+        time.sleep(2)
         # Wait for the download to complete
         while True:
             orig_filename = max([out_path + "\\" +f for f in os.listdir(out_path)],key=os.path.getctime)
-            if orig_filename.endswith(format):
+            if orig_filename.endswith(format) or orig_filename.endswith(".zip"):
                 break
             else:
                 time.sleep(1)
