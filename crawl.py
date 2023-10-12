@@ -37,29 +37,29 @@ driver = webdriver.Chrome(options=options)
 
 
 # Login
-# # --------------------------------------------------
-# driver.get("https://sketchfab.com/login")
-# time.sleep(5)
+# --------------------------------------------------
+driver.get("https://sketchfab.com/login")
+time.sleep(5)
 
-# # Accept cookies
-# try:
-#     accept_cookies_button = driver.find_element(
-#         "xpath", "/html/body/div[5]/div[2]/div/div[1]/div/div[2]/div/button[3]"
-#     )
-#     actions = ActionChains(driver)
-#     actions.move_to_element(accept_cookies_button).click().perform()
-#     time.sleep(1)
-# except:
-#     pass
+# Accept cookies
+try:
+    accept_cookies_button = driver.find_element(
+        "xpath", "/html/body/div[5]/div[2]/div/div[1]/div/div[2]/div/button[3]"
+    )
+    actions = ActionChains(driver)
+    actions.move_to_element(accept_cookies_button).click().perform()
+    time.sleep(1)
+except:
+    pass
 
-# # Find the username and password input fields and enter your credentials
-# username_input = driver.find_element("name", "email")
-# password_input = driver.find_element("name", "password")
-# username_input.send_keys(id)
-# password_input.send_keys(pw)
-# password_input.send_keys(Keys.RETURN)
-# driver.implicitly_wait(10)
-# time.sleep(2)
+# Find the username and password input fields and enter your credentials
+username_input = driver.find_element("name", "email")
+password_input = driver.find_element("name", "password")
+username_input.send_keys(id)
+password_input.send_keys(pw)
+password_input.send_keys(Keys.RETURN)
+driver.implicitly_wait(10)
+time.sleep(2)
 # --------------------------------------------------
 
 # Search
@@ -78,20 +78,55 @@ download_classes = soup.find_all("a", class_="help card-model__feature --downloa
 cnt = 0
 for download_button in download_classes:
     if download_button:
-        download_link = download_button["href"]
+        # Find the image link, which is a .jpeg file
 
+        img_link = download_button.find_parent().find_parent().find("img")['src']
+        
+        # Download the image directly and save it to the folder
+        img = requests.get(img_link)
+        img_name = str(cnt) + ".jpeg"
+        img_path = os.path.join(out_path, img_name)
+        with open(img_path, "wb") as f:
+            f.write(img.content)
+            
+        # Find the download link
+        download_link = download_button["href"]
         # visit the download link
         time.sleep(2)
         driver.get(download_link)
         time.sleep(2)
 
         # Parse the html content and find the download button
-        html_content = driver.page_source
-        soup = BeautifulSoup(html_content, "html.parser")
-        glb_div = soup.find("div", text=format)
+        html_content_inside = driver.page_source
+        soup_inside = BeautifulSoup(html_content_inside, "html.parser")
+        glb_div = soup_inside.find("div", text=format)
+        if glb_div is None:
+            # Login
+            # --------------------------------------------------
+            # Accept cookies
+            try:
+                accept_cookies_button = driver.find_element(
+                    "xpath", "/html/body/div[5]/div[2]/div/div[1]/div/div[2]/div/button[3]"
+                )
+                actions = ActionChains(driver)
+                actions.move_to_element(accept_cookies_button).click().perform()
+                time.sleep(1)
+            except:
+                pass
+
+            # Find the username and password input fields and enter your credentials
+            try:
+                username_input = driver.find_element("name", "email")
+                password_input = driver.find_element("name", "password")
+                username_input.send_keys(id)
+                password_input.send_keys(pw)
+                password_input.send_keys(Keys.RETURN)
+                driver.implicitly_wait(10)
+                time.sleep(2)
+            except:
+                continue # no preferred format
+            # --------------------------------------------------
         button = glb_div.find_parent().find_parent().find("button")
-        if button is None:
-            continue
         xpath = ""
         while button.parent:
             siblings = button.parent.find_all(button.name, recursive=False)
@@ -106,8 +141,21 @@ for download_button in download_classes:
         button = driver.find_element("xpath", xpath)
         actions = ActionChains(driver)
         actions.move_to_element(button).click().perform()
-        time.sleep(2)
+        # Change the file name to cnt.glb
+        
+        # Wait for the download to complete
+        while True:
+            orig_filename = max([out_path + "\\" +f for f in os.listdir(out_path)],key=os.path.getctime)
+            if orig_filename.endswith(format):
+                break
+            else:
+                time.sleep(1)
+        # Rename the file
+        new_file_name = str(cnt) + format
+        file_path = os.path.join(out_path, new_file_name)
+        os.rename(orig_filename, file_path)
         cnt = cnt + 1
+        
     if cnt == NUM:
         break
 # --------------------------------------------------
