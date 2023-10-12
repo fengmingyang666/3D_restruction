@@ -69,7 +69,7 @@ driver.get(url)
 time.sleep(2)
 # Parse the html content and find the download button
 html_content = driver.page_source
-gnsoup = BeautifulSoup(html_content, "html.parser")
+soup = BeautifulSoup(html_content, "html.parser")
 download_classes = soup.find_all("a", class_="help card-model__feature --downloads")
 # --------------------------------------------------
 
