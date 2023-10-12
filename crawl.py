@@ -80,9 +80,10 @@ idx = index_start
 for download_button in download_classes:
     if download_button:
         # Find the image link, which is a .jpeg file
-
-        img_link = download_button.find_parent().find_parent().find("img")['src']
-        
+        try:
+            img_link = download_button.find_parent().find_parent().find("img")['src']
+        except:
+            continue
         # Download the image directly and save it to the folder
         img = requests.get(img_link)
         img_name = str(idx) + ".jpeg"
