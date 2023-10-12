@@ -12,6 +12,7 @@ import os
 # --------------------------------------------------
 index_start = 0
 index_end = 100
+page_down_times = 100
 format = ".glb"
 model = "smartphone"
 id = "384360712@qq.com"
@@ -67,11 +68,20 @@ time.sleep(2)
 # --------------------------------------------------
 url = "https://sketchfab.com/search?q=" + model + "&type=models"
 driver.get(url)
-time.sleep(2)
+# TODO To Load all the models, continue to scroll down until the end
+white_space = driver.find_element("xpath","/html/body/div[3]/main/aside/div[1]/div[1]/div/ul/li[1]")
+white_space.click()
+for i in range(page_down_times):
+    # First, we need to click on white space to make sure the page is active
+    actions = ActionChains(driver)
+    actions.send_keys(Keys.PAGE_DOWN).perform()
+    time.sleep(0.2)
+
 # Parse the html content and find the download button
 html_content = driver.page_source
 soup = BeautifulSoup(html_content, "html.parser")
 download_classes = soup.find_all("a", class_="help card-model__feature --downloads")
+print("There are " + str(len(download_classes)) + " free electronic models.")
 # --------------------------------------------------
 
 # Download
