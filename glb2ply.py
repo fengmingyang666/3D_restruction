@@ -19,26 +19,32 @@ def glb2ply(type:str):
 
     filelist = os.listdir(data_path)
     print(model)
+    i = 0
     for file in filelist:
             if file.endswith(".glb"):
-                    model_idx = file.replace('.glb','')
-                    file_path = data_path + os.sep + file
-                    try:
+                model_idx = file.replace('.glb','')
+                file_path = data_path + os.sep + file
+                try:
                         m = trimesh.load_mesh(file_path)
                         me = m.copy()
-                        #me.apply_scale(1.1)
+                #me.apply_scale(1.1)
                         file_gt = mash_gt_path + os.sep + model_idx + '.ply'
                         me.export(file_gt)
-                        time.sleep(2)
-                    except:
+                #time.sleep(2)
+                except:
                         print(file)
-                        time.sleep(2)
+                #time.sleep(2)
+                i = i + 1
+                if i==10:
+                       i = 0
+                       print(11)
+                       time.sleep(10)
     return
 
 types_all = ['calculator','computer+mouse','digital+camera','game+boy',
-         'iPad','keyboard','laptop','pc monitor','polaroid','smartphone']
-types = ['keyboard','laptop','pc monitor','polaroid','smartphone']
+         'iPad','keyboard','laptop','pc+monitor','polaroid','smartphone']
+#types = ['keyboard','laptop','pc monitor','polaroid','smartphone']
 
-for type in types:
+for type in types_all:
       glb2ply(type=type)
                 
