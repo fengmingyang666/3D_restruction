@@ -60,8 +60,8 @@ def align_meshes(source_points, target_points, threshold=0.02, max_iterations=20
 
     # Apply the final transformation to the source points
     transformed_points = np.dot(np.hstack((source_points, np.ones((source_points.shape[0], 1)))), icp_result.transformation.T)[:, :3]
-    
-    return transformed_points
+    # output the transformation matrix as well
+    return transformed_points, icp_result.transformation
 
 def chamfer_distance(set1, set2):
     tree1, tree2 = cKDTree(set1), cKDTree(set2)

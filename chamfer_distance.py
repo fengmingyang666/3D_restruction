@@ -5,10 +5,10 @@ import random
 from chamfer_distance_utils import load_and_normalize_mesh, align_meshes, rotate_mesh_points, visualize_meshes, normalize_mesh_scale, chamfer_distance
 
 def main():
-    filename = 'iPad_71'
+    filename = 'polaroid_99'
     
     file1, file2 = f'./data/prediction/{filename}.ply', f'./data/ground_truth/{filename}.ply'
-    mesh1_points, mesh2_points = load_and_normalize_mesh(file1), load_and_normalize_mesh(file2)
+    mesh1_points, mesh2_points = load_and_normalize_mesh(file1,number_of_points=5000), load_and_normalize_mesh(file2,number_of_points=5000)
     print(f"Loaded {file1} and {file2}")
     if mesh1_points is None or mesh2_points is None:
         print("Error loading mesh files.")
@@ -35,7 +35,9 @@ def main():
     print(f"Chamfer Distance after random rotation: {distance_pre_align}")
 
     # Align meshes
-    aligned_mesh1_points = align_meshes(rotated_mesh1_points, mesh2_points)
+    aligned_mesh1_points, transformation_matrix = align_meshes(rotated_mesh1_points, mesh2_points)
+    # output the transformation matrix as well
+    print(f"Transformation Matrix:\n{transformation_matrix}")
     # Visualize after alignment
     visualize_meshes(aligned_mesh1_points, mesh2_points, "Meshes After Alignment")
 
