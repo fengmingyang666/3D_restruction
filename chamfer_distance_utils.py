@@ -2,6 +2,7 @@ import open3d as o3d
 import numpy as np
 from scipy.spatial import cKDTree
 import scipy
+import tqdm
 
 def load_mesh(file_name):
     try:
@@ -57,30 +58,94 @@ def kabsch_umeyama(P, Q):
     P_aligned = P @ R + t
 
     return P_aligned, R, t  
+
+def point_triangle_distance(point, triangle):
+    # Unpack the triangle vertices
+    v0, v1, v2 = triangle
+    # Compute the normal of the triangle
+    normal = np.cross(v1 - v0, v2 - v0)
+    normal = normal / np.linalg.norm(normal)
     
-def transfer_normals_from_mesh_to_point_cloud(mesh, point_cloud):
-    # Ensure the mesh has triangle normals
-    # BUG
-    if not mesh.has_triangle_normals():
-        mesh.compute_triangle_normals()
+    # Calculate the distance from the point to the triangle plane
+    distance = np.dot((point - v0), normal)
+    
+    # Project the point onto the triangle plane
+    projection = point - distance * normal
+    
+    # Check if the projection lies inside the triangle
+    edge0 = v1 - v0
+    vp0 = projection - v0
+    c = np.cross(edge0, vp0)
+    if np.dot(normal, c) < 0:
+        return np.inf
 
-    # Create a KDTree for the mesh triangles (using triangle centroids)
-    triangle_centroids = np.mean(np.asarray(mesh.vertices)[np.asarray(mesh.triangles), :], axis=1)
-    mesh_tree = o3d.geometry.KDTreeFlann(triangle_centroids)
+    edge1 = v2 - v1
+    vp1 = projection - v1
+    c = np.cross(edge1, vp1)
+    if np.dot(normal, c) < 0:
+        return np.inf
 
-    # Preallocate array for normals
-    normals = np.zeros((len(point_cloud.points), 3))
+    edge2 = v0 - v2
+    vp2 = projection - v2
+    c = np.cross(edge2, vp2)
+    if np.dot(normal, c) < 0:
+        return np.inf
 
-    # Find the closest triangle in the mesh for each point in the point cloud
-    for i, point in enumerate(point_cloud.points):
-        _, idx, _ = mesh_tree.search_knn_vector_3d(point, 1)
-        normals[i] = mesh.triangle_normals[idx[0]]
+    return np.abs(distance)
 
-    # Assign computed normals to the point cloud
-    point_cloud.normals = o3d.utility.Vector3dVector(normals)
+def closest_triangle(mesh, point):
+    min_distance = np.inf
+    closest_triangle_idx = -1
+    
+    for i, triangle in enumerate(mesh.triangles):
+        triangle_points = np.asarray([mesh.vertices[v] for v in triangle])
+        distance = point_triangle_distance(point, triangle_points)
+        
+        if distance < min_distance:
+            min_distance = distance
+            closest_triangle_idx = i
+
+    return closest_triangle_idx, min_distance
+
+# def transfer_normals_from_mesh_to_point_cloud(mesh, point_cloud):
+#     # Ensure the mesh has triangle normals
+#     if not mesh.has_triangle_normals():
+#         mesh.compute_triangle_normals()
+
+#     # Calculate the centroids of each triangle
+#     triangles = np.asarray(mesh.triangles)
+#     vertices = np.asarray(mesh.vertices)
+#     triangle_centroids = np.mean(vertices[triangles], axis=1)
+
+#     # Create a KDTree for the triangle centroids
+#     tree = cKDTree(triangle_centroids)
+
+#     # For each point in the point cloud, find the nearest triangle centroid
+#     points = np.asarray(point_cloud.points)
+#     _, nearest_triangle_idx = tree.query(points)
+
+#     # Assign the normals of the nearest triangles to the points in the point cloud
+#     triangle_normals = np.asarray(mesh.triangle_normals)
+#     point_cloud.normals = o3d.utility.Vector3dVector(triangle_normals[nearest_triangle_idx])
 
 
-def align_meshes(source_mesh, target_mesh, max_correspondence_distance=0.5, initial_transformation=np.eye(4), use_point_to_plane=True, relative_fitness=0.000001, relative_rmse=0.000001, max_iteration=3000, number_of_points=1000):
+# def transfer_normals_from_mesh_to_point_cloud(mesh, point_cloud):
+#     # Ensure the mesh has triangle normals
+#     if not mesh.has_triangle_normals():
+#         mesh.compute_triangle_normals()
+
+#     # For each point in the point cloud, find the nearest triangle
+#     normals = []
+#     # use tqdm to show progress bar
+#     for point in tqdm.tqdm(point_cloud.points):
+#         idx, _ = closest_triangle(mesh, np.asarray(point))
+#         normals.append(mesh.triangle_normals[idx])
+
+#     # Assign computed normals to the point cloud
+#     point_cloud.normals = o3d.utility.Vector3dVector(np.array(normals))
+
+
+def align_meshes(source_mesh, target_mesh, max_correspondence_distance=0.5, initial_transformation=np.eye(4), use_point_to_plane=False, relative_fitness=0.000001, relative_rmse=0.000001, max_iteration=3000, number_of_points=1000):
     """
     Aligns the source mesh to the target mesh using the ICP algorithm.
 
@@ -99,9 +164,9 @@ def align_meshes(source_mesh, target_mesh, max_correspondence_distance=0.5, init
     # transfer_normals_from_mesh_to_point_cloud(source_mesh, source)
     # transfer_normals_from_mesh_to_point_cloud(target_mesh, target)
     
-    # Estimate normals for the sampled point clouds
-    source.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
-    target.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+    # # Compute normals for the point clouds
+    # source.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
+    # target.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=0.1, max_nn=30))
 
     # Choose the ICP method: point-to-plane or point-to-point
     registration_method = o3d.pipelines.registration.TransformationEstimationPointToPlane() if use_point_to_plane else o3d.pipelines.registration.TransformationEstimationPointToPoint()

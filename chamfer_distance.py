@@ -4,9 +4,9 @@ from scipy.spatial import cKDTree
 import random
 from chamfer_distance_utils import *
 def main():
-    filename = 'polaroid_99'
+    filename = 'good_phone'
     
-    file1, file2 = f'./data/prediction/{filename}.ply', f'./data/ground_truth/{filename}.ply'
+    file1, file2 = f'./data/prediction/{filename}_pre.ply', f'./data/ground_truth/{filename}_gt.ply'
     mesh1,mesh2 = load_mesh(file1),load_mesh(file2)
     print(f"Loaded {file1} and {file2}")
     if mesh1 is None or mesh2 is None:
