@@ -10,13 +10,13 @@ Reconstruct 3D objects in a single view
 pip install open3d numpy scipy
 ```
 
-### You should modify the path in chamfer_distance.py
+### 2. You should modify the path in chamfer_distance.py
 
 ```python
 filename = 'iPad_71'
 ```
 
-### Run the code
+### 3. Run the code
 
 ```bash
 python chamfer_distance.py
@@ -24,6 +24,6 @@ python chamfer_distance.py
 
 This will display the two point clouds and the distance between them. (Orignal, Rotated, Aligned)
 
-### Develop
+### 4. Further Develop
 
 You can modify the code in chamfer_distance_utils.py, mainly the alignment function.
