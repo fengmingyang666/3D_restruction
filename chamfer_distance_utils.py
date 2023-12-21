@@ -48,7 +48,7 @@ def kabsch_umeyama(P, Q):
     H = P_centered.T @ Q_centered
 
     # Step 4: Compute the optimal rotation matrix using SVD
-    U, _, Vt = np.linalg.svd(H)
+    U, _, Vt = scipy.linalg.svd(H)
     R = Vt.T @ U.T
 
     # Ensure a right-handed coordinate system
