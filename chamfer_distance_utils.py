@@ -2,6 +2,7 @@ import open3d as o3d
 import numpy as np
 from scipy.spatial import cKDTree
 import random
+import scipy
 
 def load_and_normalize_mesh(file_name, number_of_points=10000):
     try:
@@ -20,6 +21,68 @@ def load_and_normalize_mesh(file_name, number_of_points=10000):
         print(f"Error loading mesh from {file_name}: {e}")
         return None
 
+def kabsch_umeyama(P, Q):
+    """
+    The Kabsch-Umeyama algorithm to find the optimal rotation and translation
+    to align two sets of points P and Q.
+
+    Parameters:
+    P (numpy.ndarray): First set of points (Nx3).
+    Q (numpy.ndarray): Second set of points (Nx3), to which P is to be aligned.
+
+    Returns:
+    numpy.ndarray: Rotated and translated version of P.
+    numpy.ndarray: Rotation matrix.
+    numpy.ndarray: Translation vector.
+    """
+
+    # Step 1: Calculate the centroids of P and Q
+    centroid_P = np.mean(P, axis=0)
+    centroid_Q = np.mean(Q, axis=0)
+
+    # Step 2: Translate points to the centroid
+    P_centered = P - centroid_P
+    Q_centered = Q - centroid_Q
+
+    # Step 3: Compute the cross-covariance matrix
+    H = P_centered.T @ Q_centered
+
+    # Step 4: Compute the optimal rotation matrix using SVD
+    U, _, Vt = np.linalg.svd(H)
+    R = Vt.T @ U.T
+
+    # Ensure a right-handed coordinate system
+    if np.linalg.det(R) < 0:
+        Vt[-1, :] *= -1
+        R = Vt.T @ U.T
+
+    # Step 5: Compute the optimal translation
+    t = centroid_Q - R @ centroid_P
+
+    # Step 6: Apply the rotation and translation to P
+    P_aligned = P @ R + t
+
+    return P_aligned, R, t
+
+
+def align_meshes_Kabsch_Umeyama_algorithm(source_points, target_points):
+    """
+    Aligns the source points to the target points using the Kabsch-Umeyama algorithm.
+
+    :param source_points: NumPy array of source points.
+    :param target_points: NumPy array of target points.
+    :return: Aligned source point cloud as a numpy array.
+    """
+    # Apply the Kabsch-Umeyama algorithm
+    aligned_source_points, rotation_matrix, translation_vector = kabsch_umeyama(source_points, target_points)
+    transformation_matrix = np.eye(4)
+    transformation_matrix[:3, :3] = rotation_matrix
+    transformation_matrix[:3, 3] = translation_vector
+    
+    return aligned_source_points,  transformation_matrix
+    
+    
+    
 def align_meshes(source_points, target_points, threshold=0.02, max_iterations=2000, initial_transformation=None, use_point_to_plane=False):
     """
     Aligns the source points to the target points using the ICP algorithm.

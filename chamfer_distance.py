@@ -2,7 +2,7 @@ import open3d as o3d
 import numpy as np
 from scipy.spatial import cKDTree
 import random
-from chamfer_distance_utils import load_and_normalize_mesh, align_meshes, rotate_mesh_points, visualize_meshes, normalize_mesh_scale, chamfer_distance
+from chamfer_distance_utils import load_and_normalize_mesh, align_meshes,align_meshes_Kabsch_Umeyama_algorithm, rotate_mesh_points, visualize_meshes, normalize_mesh_scale, chamfer_distance
 
 def main():
     filename = 'polaroid_99'
@@ -35,7 +35,7 @@ def main():
     print(f"Chamfer Distance after random rotation: {distance_pre_align}")
 
     # Align meshes
-    aligned_mesh1_points, transformation_matrix = align_meshes(rotated_mesh1_points, mesh2_points)
+    aligned_mesh1_points, transformation_matrix = align_meshes_Kabsch_Umeyama_algorithm(rotated_mesh1_points, mesh2_points)
     # output the transformation matrix as well
     print(f"Transformation Matrix:\n{transformation_matrix}")
     # Visualize after alignment
