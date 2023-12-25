@@ -1,0 +1,524 @@
+{
+    "computer+mouse_0.ply": {
+        "distance_original": 0.05893217112199169,
+        "distance_post_align": 0.12923365691178546,
+        "euler_angles": [
+            0.4023529154770503,
+            -0.1465577488476562,
+            -0.02853267479864667
+        ]
+    },
+    "computer+mouse_10.ply": {
+        "distance_original": 0.058365928318589576,
+        "distance_post_align": 0.029109206318207105,
+        "euler_angles": [
+            -1.3241697070786504,
+            0.10174210097412582,
+            -0.8750355325872493
+        ]
+    },
+    "computer+mouse_100.ply": {
+        "distance_original": 0.060334877148358626,
+        "distance_post_align": 0.14680669017703674,
+        "euler_angles": [
+            0.5401252204821071,
+            0.5176778773698767,
+            -0.8676533338035592
+        ]
+    },
+    "computer+mouse_109.ply": {
+        "distance_original": 0.0539788374313499,
+        "distance_post_align": 0.0655393471216989,
+        "euler_angles": [
+            -0.8061954889929714,
+            0.17818884706325666,
+            -0.4288217766768606
+        ]
+    },
+    "computer+mouse_11.ply": {
+        "distance_original": 0.06789598616193003,
+        "distance_post_align": 0.058071378940434404,
+        "euler_angles": [
+            0.5646963153586944,
+            -0.8690876789510139,
+            0.5134194248430003
+        ]
+    },
+    "computer+mouse_111.ply": {
+        "distance_original": 0.05109490940742631,
+        "distance_post_align": 0.031896271754642894,
+        "euler_angles": [
+            0.3051173692063666,
+            -0.10681798536895008,
+            -1.490365436133416
+        ]
+    },
+    "computer+mouse_115.ply": {
+        "distance_original": 0.07038727166437433,
+        "distance_post_align": 0.011459074821895676,
+        "euler_angles": [
+            -1.4143580418895636,
+            0.07179911164018321,
+            0.11201469774286628
+        ]
+    },
+    "computer+mouse_116.ply": {
+        "distance_original": 0.08501498755484932,
+        "distance_post_align": 0.10605396354622568,
+        "euler_angles": [
+            0.16545285695189396,
+            -0.2072992321880921,
+            0.8548151756736985
+        ]
+    },
+    "computer+mouse_118.ply": {
+        "distance_original": 0.029631304583390597,
+        "distance_post_align": 0.005538019499440343,
+        "euler_angles": [
+            -0.18283565528910406,
+            -0.005242149985004355,
+            0.528705461098345
+        ]
+    },
+    "computer+mouse_123.ply": {
+        "distance_original": 0.012865099400874614,
+        "distance_post_align": 0.003450505648016796,
+        "euler_angles": [
+            -0.13674902840592865,
+            -0.11322940430689239,
+            0.17604558012998683
+        ]
+    },
+    "computer+mouse_124.ply": {
+        "distance_original": 0.04052337342035849,
+        "distance_post_align": 0.03633906368579264,
+        "euler_angles": [
+            -0.8377740940587177,
+            0.017560931613312177,
+            0.4769435776695853
+        ]
+    },
+    "computer+mouse_125.ply": {
+        "distance_original": 0.06079521571970058,
+        "distance_post_align": 0.11213542433151807,
+        "euler_angles": [
+            1.5684549333368742,
+            -0.08227622167939051,
+            -0.1775069107014481
+        ]
+    },
+    "computer+mouse_13.ply": {
+        "distance_original": 0.04163311178499958,
+        "distance_post_align": 0.043179408339640235,
+        "euler_angles": [
+            1.040210116952881,
+            -0.5258984081783747,
+            -0.44942148117291214
+        ]
+    },
+    "computer+mouse_133.ply": {
+        "distance_original": 0.04569843007069528,
+        "distance_post_align": 0.004814705084972108,
+        "euler_angles": [
+            -1.4212545041745328,
+            -0.12385562680846357,
+            -0.151049601192705
+        ]
+    },
+    "computer+mouse_134.ply": {
+        "distance_original": 0.05632706784271863,
+        "distance_post_align": 0.006983524874859768,
+        "euler_angles": [
+            -1.5180836213827344,
+            0.082765665529783,
+            -0.3904837844547321
+        ]
+    },
+    "computer+mouse_136.ply": {
+        "distance_original": 0.04824990743305243,
+        "distance_post_align": 0.009511627276773743,
+        "euler_angles": [
+            1.5685946180034223,
+            -0.012687846242616055,
+            -0.46781474655087424
+        ]
+    },
+    "computer+mouse_138.ply": {
+        "distance_original": 0.03819432560936166,
+        "distance_post_align": 0.04776134942250358,
+        "euler_angles": [
+            0.0950681992726263,
+            0.510995770980579,
+            -0.3398883825615688
+        ]
+    },
+    "computer+mouse_14.ply": {
+        "distance_original": 0.02200438806782221,
+        "distance_post_align": 0.009404191724631377,
+        "euler_angles": [
+            1.499167622106508,
+            -0.001265642684572823,
+            -0.32181595354710013
+        ]
+    },
+    "computer+mouse_140.ply": {
+        "distance_original": 0.010965531126525232,
+        "distance_post_align": 0.0024875417102424883,
+        "euler_angles": [
+            1.5704060004152145,
+            0.020779189183167995,
+            -0.11283193384861288
+        ]
+    },
+    "computer+mouse_16.ply": {
+        "distance_original": 0.03182234437522385,
+        "distance_post_align": 0.020541908402830485,
+        "euler_angles": [
+            -0.8181437947300968,
+            0.8933539387511732,
+            -0.4950151527985452
+        ]
+    },
+    "computer+mouse_160.ply": {
+        "distance_original": 0.041318031215909407,
+        "distance_post_align": 0.020026498838399978,
+        "euler_angles": [
+            -0.5947104127972979,
+            -0.47309226826810963,
+            0.37153347203806786
+        ]
+    },
+    "computer+mouse_163.ply": {
+        "distance_original": 0.0499018088041256,
+        "distance_post_align": 0.04694054526158385,
+        "euler_angles": [
+            -0.28524016943094826,
+            0.2778179253148897,
+            -0.02812071942039195
+        ]
+    },
+    "computer+mouse_165.ply": {
+        "distance_original": 0.08288227614890177,
+        "distance_post_align": 0.02385601340811401,
+        "euler_angles": [
+            -1.6317136028237986,
+            0.08000222035062228,
+            -0.2409935170034841
+        ]
+    },
+    "computer+mouse_169.ply": {
+        "distance_original": 0.050810908265122245,
+        "distance_post_align": 0.043979712594713276,
+        "euler_angles": [
+            -0.8278224232942252,
+            -0.5093968392993045,
+            0.03305943469444806
+        ]
+    },
+    "computer+mouse_17.ply": {
+        "distance_original": 0.07613373736980589,
+        "distance_post_align": 0.019395509099484953,
+        "euler_angles": [
+            0.7391783470414446,
+            0.743439535023595,
+            1.241019149568078
+        ]
+    },
+    "computer+mouse_172.ply": {
+        "distance_original": 0.059639919597045274,
+        "distance_post_align": 0.016597950292937362,
+        "euler_angles": [
+            1.403763706065506,
+            0.5025547943529518,
+            1.7798176339018068
+        ]
+    },
+    "computer+mouse_176.ply": {
+        "distance_original": 0.044990231689711085,
+        "distance_post_align": 0.04231707750165477,
+        "euler_angles": [
+            -0.1544705481025305,
+            -0.06885032888776478,
+            0.5873030313309812
+        ]
+    },
+    "computer+mouse_180.ply": {
+        "distance_original": 0.05097061374118439,
+        "distance_post_align": 0.023802297314025764,
+        "euler_angles": [
+            -0.6608454419392331,
+            -0.7078716462144732,
+            0.6629175041930645
+        ]
+    },
+    "computer+mouse_186.ply": {
+        "distance_original": 0.061661158996177946,
+        "distance_post_align": 0.14650900305229125,
+        "euler_angles": [
+            -0.23658376638682252,
+            -0.062008107246372665,
+            -0.547006073257989
+        ]
+    },
+    "computer+mouse_188.ply": {
+        "distance_original": 0.046726190994578976,
+        "distance_post_align": 0.09790599667800165,
+        "euler_angles": [
+            0.06229462470939788,
+            0.3479762197224217,
+            0.113801611145512
+        ]
+    },
+    "computer+mouse_19.ply": {
+        "distance_original": 0.10405386478696307,
+        "distance_post_align": 0.06882731123563664,
+        "euler_angles": [
+            -1.6271156138396787,
+            -0.32502966970750885,
+            0.4952602067731984
+        ]
+    },
+    "computer+mouse_192.ply": {
+        "distance_original": 0.05735614715054539,
+        "distance_post_align": 0.018727396857272996,
+        "euler_angles": [
+            0.3200919331228933,
+            0.480798854877088,
+            0.6181692400325354
+        ]
+    },
+    "computer+mouse_21.ply": {
+        "distance_original": 0.043606994472435906,
+        "distance_post_align": 0.048983773077798165,
+        "euler_angles": [
+            -0.8480737036508873,
+            -0.08012282805852883,
+            -0.5062482394702721
+        ]
+    },
+    "computer+mouse_24.ply": {
+        "distance_original": 0.0519540560014,
+        "distance_post_align": 0.01579627766573441,
+        "euler_angles": [
+            0.9221694586491553,
+            0.3333574300032916,
+            -1.0489506045620143
+        ]
+    },
+    "computer+mouse_26.ply": {
+        "distance_original": 0.030740984577784854,
+        "distance_post_align": 0.027328479259234907,
+        "euler_angles": [
+            0.20691905441950503,
+            0.06891412205558159,
+            0.026885539055984422
+        ]
+    },
+    "computer+mouse_27.ply": {
+        "distance_original": 0.08984757164338214,
+        "distance_post_align": 0.047982282788796814,
+        "euler_angles": [
+            -0.2135218177542611,
+            -0.9364643628545938,
+            1.1703453792568916
+        ]
+    },
+    "computer+mouse_3.ply": {
+        "distance_original": 0.05143845538083923,
+        "distance_post_align": 0.060975660696655304,
+        "euler_angles": [
+            0.6629835209722199,
+            -1.0541817493591679,
+            -1.5363898600658772
+        ]
+    },
+    "computer+mouse_30.ply": {
+        "distance_original": 0.03208541863705259,
+        "distance_post_align": 0.009487592745590287,
+        "euler_angles": [
+            -1.440404913104246,
+            -0.528772100058233,
+            1.8320437432906511
+        ]
+    },
+    "computer+mouse_31.ply": {
+        "distance_original": 0.03797318159441014,
+        "distance_post_align": 0.029449194283321045,
+        "euler_angles": [
+            -0.8111232433750212,
+            0.29756147864394705,
+            -0.5813994273494727
+        ]
+    },
+    "computer+mouse_33.ply": {
+        "distance_original": 0.14649826179962058,
+        "distance_post_align": 0.06591991330794711,
+        "euler_angles": [
+            0.3054801416403948,
+            1.198331822037862,
+            0.7175628199375033
+        ]
+    },
+    "computer+mouse_35.ply": {
+        "distance_original": 0.06425094122592132,
+        "distance_post_align": 0.10581665222582468,
+        "euler_angles": [
+            1.052400176566987,
+            -0.19603426989925493,
+            0.8632793544542698
+        ]
+    },
+    "computer+mouse_37.ply": {
+        "distance_original": 0.058721834716770206,
+        "distance_post_align": 0.028122248125752987,
+        "euler_angles": [
+            -1.1143040333522558,
+            0.1367305823232653,
+            -0.2362881330010504
+        ]
+    },
+    "computer+mouse_38.ply": {
+        "distance_original": 0.02804923652929693,
+        "distance_post_align": 0.023882583007771414,
+        "euler_angles": [
+            -0.16250059288122762,
+            0.1253580386139412,
+            0.6874177496414166
+        ]
+    },
+    "computer+mouse_40.ply": {
+        "distance_original": 0.034928831632136066,
+        "distance_post_align": 0.013607905810671166,
+        "euler_angles": [
+            -0.05663631537445638,
+            -0.10815554034138654,
+            -0.3733279644922577
+        ]
+    },
+    "computer+mouse_41.ply": {
+        "distance_original": 0.041369434779107324,
+        "distance_post_align": 0.04348421954549319,
+        "euler_angles": [
+            -0.00954672398424171,
+            -0.1506765109748359,
+            0.21658108079831132
+        ]
+    },
+    "computer+mouse_43.ply": {
+        "distance_original": 0.049199158500430565,
+        "distance_post_align": 0.03727449924823411,
+        "euler_angles": [
+            -0.468501569411092,
+            1.2616349735901504,
+            -0.7610950295685812
+        ]
+    },
+    "computer+mouse_44.ply": {
+        "distance_original": 0.03644284128720838,
+        "distance_post_align": 0.05262640592092195,
+        "euler_angles": [
+            -0.46077966686499666,
+            0.2842519604940216,
+            -0.1170936448797012
+        ]
+    },
+    "computer+mouse_47.ply": {
+        "distance_original": 0.038592872759998925,
+        "distance_post_align": 0.0076808478942352295,
+        "euler_angles": [
+            1.6572862720239685,
+            -0.18024076441450845,
+            0.8918397607884158
+        ]
+    },
+    "computer+mouse_51.ply": {
+        "distance_original": 0.08487193395795907,
+        "distance_post_align": 0.014532684703526505,
+        "euler_angles": [
+            0.8178941849197985,
+            -0.21655430579389437,
+            0.7038228388657043
+        ]
+    },
+    "computer+mouse_57.ply": {
+        "distance_original": 0.12141071066091014,
+        "distance_post_align": 0.03967268505246777,
+        "euler_angles": [
+            -1.0245507899536905,
+            0.06206204220217634,
+            -1.1596225371745748
+        ]
+    },
+    "computer+mouse_59.ply": {
+        "distance_original": 0.06343316509157876,
+        "distance_post_align": 0.018219476603241816,
+        "euler_angles": [
+            -1.2846151892539268,
+            0.07416882906307543,
+            -0.136849420664071
+        ]
+    },
+    "computer+mouse_60.ply": {
+        "distance_original": 0.041734493082602415,
+        "distance_post_align": 0.03128189526861472,
+        "euler_angles": [
+            0.5212695239797913,
+            -0.667824572842568,
+            0.009959372350519522
+        ]
+    },
+    "computer+mouse_61.ply": {
+        "distance_original": 0.03837635844328124,
+        "distance_post_align": 0.007885276429664067,
+        "euler_angles": [
+            1.5766668667968933,
+            -0.07645421532907966,
+            0.5656454698241468
+        ]
+    },
+    "computer+mouse_64.ply": {
+        "distance_original": 0.030131644113404688,
+        "distance_post_align": 0.020956618349817352,
+        "euler_angles": [
+            -0.5387752159294592,
+            0.08268742703645528,
+            0.5354791227296603
+        ]
+    },
+    "computer+mouse_67.ply": {
+        "distance_original": 0.03438896413965922,
+        "distance_post_align": 0.02922913484604192,
+        "euler_angles": [
+            -1.6088604752159705,
+            -0.1814300795063998,
+            0.31840247867357413
+        ]
+    },
+    "computer+mouse_7.ply": {
+        "distance_original": 0.023132758174629432,
+        "distance_post_align": 0.01009594545810807,
+        "euler_angles": [
+            0.9546882586317711,
+            -0.027396087243349923,
+            1.4110078193220366
+        ]
+    },
+    "computer+mouse_8.ply": {
+        "distance_original": 0.04398582081980792,
+        "distance_post_align": 0.004567844261989372,
+        "euler_angles": [
+            -0.04416302535462825,
+            -0.01527405928490926,
+            0.49807796739154375
+        ]
+    },
+    "computer+mouse_9.ply": {
+        "distance_original": 0.022224604822389155,
+        "distance_post_align": 0.040552791358662944,
+        "euler_angles": [
+            1.5872907857686414,
+            0.06194675713816887,
+            -0.10124931813416323
+        ]
+    }
+}

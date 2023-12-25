@@ -1,0 +1,146 @@
+{
+    "digital+camera_1.ply": {
+        "distance_original": 0.029106566878280324,
+        "distance_post_align": 0.028810574615129557,
+        "euler_angles": [
+            -0.005639002526768307,
+            0.09636542550843435,
+            0.3518291822804335
+        ]
+    },
+    "digital+camera_10.ply": {
+        "distance_original": 0.028689725114494583,
+        "distance_post_align": 0.017802897908946392,
+        "euler_angles": [
+            -0.6038627138939203,
+            -0.28934447434992633,
+            0.0967499522918073
+        ]
+    },
+    "digital+camera_11.ply": {
+        "distance_original": 0.03836182396393217,
+        "distance_post_align": 0.05065807680195275,
+        "euler_angles": [
+            -0.48984940309004615,
+            -0.052574307581021024,
+            0.666470671783455
+        ]
+    },
+    "digital+camera_12.ply": {
+        "distance_original": 0.022391588278531133,
+        "distance_post_align": 0.011182304445762724,
+        "euler_angles": [
+            -0.3665809887450153,
+            0.3850749831985977,
+            -0.3834712578676849
+        ]
+    },
+    "digital+camera_16.ply": {
+        "distance_original": 0.039380323669827494,
+        "distance_post_align": 0.03203351106511191,
+        "euler_angles": [
+            0.28386090523668,
+            -0.49847259888630424,
+            -0.5112870007581553
+        ]
+    },
+    "digital+camera_17.ply": {
+        "distance_original": 0.021717641698843975,
+        "distance_post_align": 0.018351307460874277,
+        "euler_angles": [
+            -1.2408497026150478,
+            -0.036774580266692954,
+            0.09523038710841317
+        ]
+    },
+    "digital+camera_18.ply": {
+        "distance_original": 0.016178193477104613,
+        "distance_post_align": 0.012214141467686821,
+        "euler_angles": [
+            -0.4259359254501898,
+            0.053034142989566935,
+            0.22699897349716092
+        ]
+    },
+    "digital+camera_19.ply": {
+        "distance_original": 0.028810673878259554,
+        "distance_post_align": 0.02714402328647024,
+        "euler_angles": [
+            -0.41997393191565635,
+            -0.09889913977727006,
+            -0.2918780914577858
+        ]
+    },
+    "digital+camera_2.ply": {
+        "distance_original": 0.0339800941826178,
+        "distance_post_align": 0.007043083279405407,
+        "euler_angles": [
+            -1.5571356526249795,
+            0.023868662737047915,
+            0.06387932750961577
+        ]
+    },
+    "digital+camera_20.ply": {
+        "distance_original": 0.0952692552795128,
+        "distance_post_align": 0.08123788369544238,
+        "euler_angles": [
+            -0.9012303691136032,
+            -0.04890244816896183,
+            -0.554161192393878
+        ]
+    },
+    "digital+camera_21.ply": {
+        "distance_original": 0.04024791290418281,
+        "distance_post_align": 0.03676717488716348,
+        "euler_angles": [
+            -0.5862462506098947,
+            -0.4280131569215734,
+            0.28461071124785653
+        ]
+    },
+    "digital+camera_3.ply": {
+        "distance_original": 0.027456249516243637,
+        "distance_post_align": 0.008031868168472702,
+        "euler_angles": [
+            -0.6814576357007454,
+            0.13805527495943265,
+            1.053067841535669
+        ]
+    },
+    "digital+camera_4.ply": {
+        "distance_original": 0.02925039585885049,
+        "distance_post_align": 0.034471933722534744,
+        "euler_angles": [
+            -0.5156711847370364,
+            0.45727254603048845,
+            0.5499201294821393
+        ]
+    },
+    "digital+camera_5.ply": {
+        "distance_original": 0.03924749763086406,
+        "distance_post_align": 0.028490633576594333,
+        "euler_angles": [
+            -0.2458885488844628,
+            -0.017821605926484272,
+            -0.6479383217013039
+        ]
+    },
+    "digital+camera_6.ply": {
+        "distance_original": 0.022215105159790773,
+        "distance_post_align": 0.020313775543874556,
+        "euler_angles": [
+            0.28693738643384653,
+            -0.41480321995650876,
+            0.007822964767516411
+        ]
+    },
+    "digital+camera_7.ply": {
+        "distance_original": 0.03157671934079097,
+        "distance_post_align": 0.014931267243390615,
+        "euler_angles": [
+            -1.2669242586248384,
+            -0.1276917293788549,
+            0.30023104097856834
+        ]
+    }
+}
